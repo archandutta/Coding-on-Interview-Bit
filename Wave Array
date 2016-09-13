@@ -1,0 +1,28 @@
+int comp (const void * elem1, const void * elem2) 
+{
+    int f = *((int*)elem1);
+    int s = *((int*)elem2);
+    if (f > s) return  1;
+    if (f < s) return -1;
+    return 0;
+}
+
+int* wave(int* A, int n1, int *len1) {
+    
+    *len1=n1;
+    int *result = (int *) malloc(*len1 * sizeof(int));
+    int i=0;
+    qsort (A, n1, sizeof(A[0]), comp);
+   
+    for(i=0;i+1<*len1;i=i+2)
+    {
+        result[i+1]=A[i];
+        result[i]=A[i+1];
+        
+    }
+    if(*len1%2!=0)
+    {
+        result[*len1-1]=A[n1-1];
+    }
+    return result;
+}
