@@ -1,0 +1,14 @@
+int trailingZeroes(int A) {
+    int res=0;
+    if(A<5)
+      return 0;
+    else
+    {
+        while(A>0)
+        {
+            res=res+A/5;
+            A=A/5;
+        }
+        return res;
+    }
+}
