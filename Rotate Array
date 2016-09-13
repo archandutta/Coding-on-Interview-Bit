@@ -1,0 +1,17 @@
+int* rotateArray(int* A, int n1, int B, int *len) {
+	int *ret = (int *)malloc(n1 * sizeof(int));
+	*len = n1;
+	int i;
+	B=B%n1;
+	for (i = 0; i<n1; i++)
+	{
+	    if((i+B)>n1-1)
+	    {
+	      ret[i]=A[(i+B-1)%(n1-1)]  ;
+	    }
+	    else
+	      ret[i] = A[i + B];
+	}
+	
+	return ret;
+}
