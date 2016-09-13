@@ -1,0 +1,29 @@
+int findRank(char* A) {
+   
+  
+    int i,j,m=1000003,n;
+    long long count=0,rank=1,t,fact;
+    
+    for(i=0;i<strlen(A);i++)
+    {
+           
+           count=0;
+           for(j=i+1;j<strlen(A);j++)
+           {
+               if((int)A[i]>(int)A[j])
+                 count++;
+           }
+           n=strlen(A)-(i+1);
+           fact=1;
+           
+           while(n>0)
+           {
+               fact=((fact%m) * (n%m))%m;
+               n--;
+           }
+          
+           t=(fact%m*count%m)%m;
+           rank=(rank%m +t%m)%m;
+    }
+    return (int)(rank);
+}
