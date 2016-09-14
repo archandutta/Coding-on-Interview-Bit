@@ -1,0 +1,20 @@
+int ** generate(int A, int *number_of_rows) {
+
+	   long long int x=1;
+	   *number_of_rows = A;
+	   int col=1,i=0,j=0;
+	   int **result = (int **)malloc(*number_of_rows * sizeof(int *));
+	   
+	   for (i=0; i<A; i++,col++)
+        {
+         result[i] = (int *)malloc(col * sizeof(int));
+         x=1;
+         for(j=0;j<col;j++)
+         {
+             result[i][j]=x;
+             x=(x*(i-j))/(j+1);
+             
+         }
+        }
+	   return result;
+	}
