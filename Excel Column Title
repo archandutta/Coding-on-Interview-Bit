@@ -1,0 +1,30 @@
+char* convertToTitle(int A) {
+	
+	  char *result = (char *)malloc(100 * sizeof(char));
+	  char *final = (char *)malloc(100 * sizeof(char));
+      int i=0,c=0,j;
+      while(A>0)
+      {
+          if(A%26==0)
+            {
+                result[i]='Z';
+                
+            }
+          else
+          {
+            result[i]=(char)(A%26+64);
+          }
+          A=A/26;
+          if(result[i]=='Z')
+            A--;
+        
+          c++;
+          i++;
+      }
+      for(j=0,i=c-1;i>=0;i--,j++)
+      {
+          final[j]=result[i];
+      }
+	  return final;
+	 
+}
